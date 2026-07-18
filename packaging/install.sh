@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # WorkLoom CLI installer.
 #
-#   curl -fsSL https://raw.githubusercontent.com/catesandrew/work-loom/main/packaging/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/catesandrew/work-loom-releases/main/packaging/install.sh | sh
 #
 # Prefer inspect-before-run:
 #   curl -fsSL <url> -o install.sh && less install.sh && sh install.sh
@@ -16,7 +16,10 @@
 #   INSTALL_DIR=/usr/local/bin   install location (default: ~/.workloom/bin)
 set -eu
 
-REPO="catesandrew/work-loom"
+# Public mirror repo (source lives in the private catesandrew/work-loom repo).
+# Anonymous curl|bash can't reach private-repo release assets, so binaries +
+# checksums are mirrored here by the CLI Release workflow.
+REPO="catesandrew/work-loom-releases"
 BINARY="wl"
 INSTALL_DIR="${INSTALL_DIR:-${HOME}/.workloom/bin}"
 
